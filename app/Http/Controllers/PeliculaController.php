@@ -14,7 +14,10 @@ class PeliculaController extends Controller
      */
     public function index()
     {
-        //
+        $peliculas = Pelicula::all();
+        // dd($pelicula);
+        // return view('peliculas.index',['peliculas'=>$peliculas]); --> En caso de enviar multiples variables
+        return view('peliculas.index',compact('peliculas'));
     }
 
     /**
