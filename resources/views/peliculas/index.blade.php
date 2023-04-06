@@ -8,6 +8,7 @@
                 <th scope="col">Titulo</th>
                 <th scope="col">Imagen</th>
                 <th scope="col">Descripcion</th>
+                <th scope="col">Acciones</th>
             </tr>
         </thead>
         <tbody class="table-group-divider">
@@ -17,6 +18,7 @@
                     <td>{{ $pelicula->nombre }}</td>
                     <td>{{ $pelicula->imagen }}</td>
                     <td>{{ $pelicula->descripcion }}</td>
+                    <td><a class="btn btn-primary" href="{{route('pelicula.edit',$pelicula->id)}}" role="button">Editar</a></td>
                 </tr>
             @endforeach
         </tbody>
