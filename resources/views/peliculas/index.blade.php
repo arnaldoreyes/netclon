@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
+@section('titulo', 'Lista de peliculas')
+
 @section('contenido')
+    <a class="btn btn btn-primary" href="{{route('pelicula.create')}}" role="button">Crear pelicula</a>
     <table class="table">
         <thead>
             <tr>
@@ -18,7 +21,14 @@
                     <td>{{ $pelicula->nombre }}</td>
                     <td>{{ $pelicula->imagen }}</td>
                     <td>{{ $pelicula->descripcion }}</td>
-                    <td><a class="btn btn-primary" href="{{route('pelicula.edit',$pelicula->id)}}" role="button">Editar</a></td>
+                    <td class="d-flex">
+                        <a class="btn btn-sm btn-primary me-1" href="{{route('pelicula.edit',$pelicula->id)}}" role="button">Editar</a>
+                        <form method="POST" action="{{route('pelicula.destroy',$pelicula->id)}}">
+                            @csrf
+                            @method('DELETE')
+                            <button class="btn btn-sm btn-danger">Eliminar</button>
+                        </form>
+                    </td>
                 </tr>
             @endforeach
         </tbody>

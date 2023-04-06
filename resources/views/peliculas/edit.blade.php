@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('titulo', 'Editar peliculas: ' . $pelicula->nombre)
+
 @section('contenido')
 <form action="{{ route('pelicula.update',$pelicula) }}" method="POST">
     @csrf
@@ -22,6 +24,6 @@
         <input type="text" class="form-control" name="trailer" value="{{$pelicula->trailer}}">
     </div>
 
-    <button type="submit">Guardar</button>
+    <button type="submit" class="btn btn-primary">Guardar</button>
 </form>
 @endsection
